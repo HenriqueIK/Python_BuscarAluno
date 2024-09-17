@@ -1,0 +1,45 @@
+def main():
+    
+    N = 0 #Numero de alunos
+    
+    while True:
+        N = int(input("Digite o número de alunos entre 1 a 1000): "))
+        if 1 <= N <= 1000:
+            break
+        
+    class Cadastro: #Cadastro dos alunos: nome, curso e matricula
+        def __init__(self, nome, curso, cod): #Instancia da classe
+            self.nome = nome
+            self.curso = curso
+            self.cod = cod
+
+    dados = []
+
+    #Lendo os dados dos alunos
+    for i in range(N):
+        nome = input("Digite o nome do aluno: ")
+        curso = input("Digite o curso do aluno: ")
+        cod = int(input("Digite o número de matrícula do aluno: 
+            ))
+        dados.append(Cadastro(nome, curso, cod))#Adicionando aluno na lista
+        print()
+
+    #Nome para ser procurado
+    procuranome = input("Digite o nome do aluno a ser procurado: ")
+
+    #Mostrando resultados da busca
+    achou = False
+    for aluno in dados:
+        if procuranome == aluno.nome:
+            print()
+            print(aluno.nome)
+            print(aluno.curso)
+            print(aluno.cod)
+            achou = True
+            break
+
+    else:
+        print("Aluno não localizado")
+
+if __name__ == "__main__":
+    main()
